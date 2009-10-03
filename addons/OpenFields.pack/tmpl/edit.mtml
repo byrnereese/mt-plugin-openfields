@@ -1,0 +1,26 @@
+<mt:setvarblock name="page_title"><mt:if name="id" gt="0">Edit<mt:else>Create</mt:if> Custom Field</mt:setvarblock>
+
+<mt:setvarblock name="html_head" append="1">
+</mt:setvarblock>
+
+<$mt:include name="include/header.tmpl"$>
+
+<mtapp:setting
+    id="annotation"
+    label_class="top-label"
+    label="<__trans phrase="Text Annotation">"
+    show_hint="0">
+      <input type="text" name="annotation" value="<$mt:DefaultCroppedImageText encode_html="1"$>" size="30" />
+</mtapp:setting>
+
+<div class="actions-bar">
+  <div class="actions-bar-inner pkg actions">
+    <button
+        type="submit"
+        class="primary-button"
+        accesskey="s"
+        title="Save">Save</button>
+  </div>
+</div>
+
+<$mt:include name="include/footer.tmpl"$>

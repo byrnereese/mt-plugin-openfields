@@ -1,0 +1,13 @@
+id: 'OpenFields'
+name: 'Open Fields'
+description: 'Provides an open source custom fields solution for Movable Type and Melody.'
+version: 0.1
+#schema_version: 0
+
+object_types:
+  custom_field: OpenFields::Field
+
+applications:
+  cms:
+    methods:
+      cf_edit: $OpenFields::OpenFields::CMS::cf_edit
