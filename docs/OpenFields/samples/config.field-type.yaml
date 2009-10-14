@@ -1,0 +1,16 @@
+id: Sample2
+name: 'Open Fields Example Plugin 2'
+description: 'This is an example Open Fields plugin. This demonstrates how to define a custom field type.'
+version: 1.0
+
+field_types:
+  sample_checkbox_list:
+    label: 'Checkbox (multi) - example'
+    template: 'fields/cb_multi.mtml'
+    handler: $OpenFields::OpenFields::FieldTypes::cb_multi
+    options:
+      values: 
+        label: Options
+        type: list
+
+  

@@ -7,7 +7,87 @@ version: 0.1
 object_types:
   custom_field: OpenFields::Field
 
+field_types:
+  text:
+    label: 'Text'
+    template: 'fields/text.mtml'
+    handler: $OpenFields::OpenFields::FieldTypes::text
+  textarea:
+    label: 'Textarea'
+    template: 'fields/textarea.mtml'
+    handler: $OpenFields::OpenFields::FieldTypes::textarea
+    options:
+      rows: 
+        label: Row Count
+        default: 5
+      cols: 
+        label: Column Count
+        default: 45
+  select:
+    label: 'Pull-down Menu'
+    template: 'fields/select.mtml'
+    handler: $OpenFields::OpenFields::FieldTypes::select
+    options:
+      values: 
+        label: Menu Items
+        type: list
+  checkbox:
+    label: 'Checkbox (boolean)'
+    template: 'fields/cb_boolean.mtml'
+    handler: $OpenFields::OpenFields::FieldTypes::cb_boolean
+  checkbox_list:
+    label: 'Checkbox (multi)'
+    template: 'fields/cb_multi.mtml'
+    handler: $OpenFields::OpenFields::FieldTypes::cb_multi
+    options:
+      values: 
+        label: Options
+        type: list
+  radio:
+    label: 'Radio Buttons'
+    template: 'fields/radio.mtml'
+    handler: $OpenFields::OpenFields::FieldTypes::radio
+    options:
+      values: 
+        label: Items
+        type: list
+  url:
+    label: 'URL'
+    template: 'fields/url.mtml'
+    handler: $OpenFields::OpenFields::FieldTypes::url
+  linked_entry:
+    label: 'Linked Entry'
+    template: 'fields/entry.mtml'
+    handler: $OpenFields::OpenFields::FieldTypes::entry
+    options:
+      include_blogs: 
+        label: Include Blogs
+        type: select
+        values: "All Blogs":"all","This Blog":"this"
+      status: 
+        label: Status
+        type: select
+        values: "Published":"published","Published and Unpublished":"all"
+  asset:
+    label: 'Linked Asset'
+    template: 'fields/asset.mtml'
+    handler: $OpenFields::OpenFields::FieldTypes::asset
+
+fields:
+  example_text:
+     extends: entry
+     label: "Example Text Field"
+     hint: "A simple text field."
+     tag: cf:ExampleText
+     type: text
+
 applications:
   cms:
     methods:
       cf_edit: $OpenFields::OpenFields::CMS::cf_edit
+      cf_list: $OpenFields::OpenFields::CMS::cf_list
+    menus:
+      manage:fields:
+        label: 'Fields'
+        order: 100
+        mode: 'cf_list'

@@ -1,0 +1,14 @@
+id: Sample1
+name: 'Open Fields Example Plugin 1'
+description: 'This is an example Open Fields plugin. This demonstrates how to make available to every blog a "Alternate HTML Title" custom field.'
+version: 1.0
+
+fields:
+  sample_alt_html:
+     extends: entry
+     label: "Alternate HTML Title"
+     hint: "This text will appear in a posts <title> tag."
+     tag: AltHTMLTitle
+     default: "Foo"
+     type: text
+  
